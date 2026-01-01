@@ -2,7 +2,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check, Download, Phone, Mail } from "lucide-react";
 
-import { getProductById, getProductsByCategory, type Product } from "../data/products";
+import { getProductById, getProductsByCategory } from "../data/products";
 import { Button } from "../components/ui/button";
 import Navbar from "../components/Navbar";
 import AnimatedSection from "../components/AnimatedSection";
