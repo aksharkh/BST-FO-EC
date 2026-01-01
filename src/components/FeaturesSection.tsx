@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Shield, Award, Clock, Headphones, Truck, Leaf } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
