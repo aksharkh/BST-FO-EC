@@ -11,15 +11,7 @@ import AnimatedSection from "./AnimatedSection";
 import { Button } from "./ui/button";
 
 const products = [
-  {
-    id: "fiber",
-    title: "Fiber Optic Cables",
-    description: "Ultra-high-speed data transmission with minimal signal loss. Perfect for telecommunications, data centers, and enterprise networks.",
-    image: fiberImage,
-    icon: Wifi,
-    features: ["Up to 100 Gbps", "Low latency", "EMI resistant", "Long distance"],
-    category: "fiber",
-  },
+
   {
     id: "electrical",
     title: "Electrical Cables",
@@ -28,6 +20,15 @@ const products = [
     icon: Zap,
     features: ["High conductivity", "Fire resistant", "Durable sheath", "Multi-core options"],
     category: "electrical",
+  },
+    {
+    id: "fiber",
+    title: "Fiber Optic Cables",
+    description: "Ultra-high-speed data transmission with minimal signal loss. Perfect for telecommunications, data centers, and enterprise networks.",
+    image: fiberImage,
+    icon: Wifi,
+    features: ["Up to 100 Gbps", "Low latency", "EMI resistant", "Long distance"],
+    category: "fiber",
   },
   {
     id: "hybrid",

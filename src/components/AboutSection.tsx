@@ -39,7 +39,7 @@ const AboutSection = () => {
               </h2>
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
                 Blue Santos technologies has been at the forefront of cable manufacturing for over 25 years. 
-                We specialize in producing high-quality fiber optic and electrical cables that power 
+                We specialize in producing high-quality electrical cables and fiber optic that power 
                 industries, homes, and data centers across the globe.
               </p>
               <p className="text-muted-foreground mb-8 leading-relaxed">
