@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Cable, Facebook, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
+import {  Facebook, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
 import logo from "../assets/__Blue_Santos_Icon.png"
 
 const Footer = () => {
