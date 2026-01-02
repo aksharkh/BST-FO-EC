@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Cable, Facebook, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
+import logo from "../assets/__Blue_Santos_Icon.png"
 
 const Footer = () => {
   const footerLinks = {
@@ -42,13 +43,16 @@ const Footer = () => {
             <Link to="/" className="flex items-center gap-3 mb-6">
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center"
+                className="w-11 h-11 rounded-xl bg-primary flex items-center justify-center"
               >
-                <Cable className="w-6 h-6 text-primary-foreground" />
+                <img src={logo} alt="Blue Santos Technologies Logo" className="w-10 h-10" />
               </motion.div>
-              <span className="font-display text-xl font-bold text-foreground">
-                FiberTech Pro
-              </span>
+            <span className="font-Noto Sans Japanese text-xl leading-tight font-bold text-foreground group-hover:text-secondary transition-colors">
+                <span className="block">BLUE SANTOS</span>
+                <span className="block text-xl tracking-wide">
+                TECHNOLOGIES
+                </span>
+            </span>
             </Link>
             <p className="text-muted-foreground text-sm mb-6 max-w-xs">
               Leading manufacturer of high-performance fiber optic and electrical cables. 
@@ -57,15 +61,15 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex items-center gap-3">
               {socialLinks.map((social, index) => (
-                <motion.a
+                <motion.button
                   key={index}
-                  href={social.href}
+                  onClick={(e) => e.preventDefault()}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 rounded-lg bg-muted/50 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  className="w-10 h-10 rounded-lg bg-muted/50 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-pointer"
                 >
                   <social.icon className="w-5 h-5" />
-                </motion.a>
+                </motion.button>
               ))}
             </div>
           </div>
@@ -93,18 +97,18 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="py-6 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} FiberTech Pro. All rights reserved.
+            © {new Date().getFullYear()} Blue Santos technologies. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <button onClick={(e) => e.preventDefault()} className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">
               Privacy Policy
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            </button>
+            <button onClick={(e) => e.preventDefault()} className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">
               Terms of Service
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            </button>
+            <button onClick={(e) => e.preventDefault()} className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">
               Cookies
-            </a>
+            </button>
           </div>
         </div>
       </div>

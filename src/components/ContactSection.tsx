@@ -55,20 +55,20 @@ const ContactSection = () => {
                   {
                     icon: Phone,
                     title: "Call Us",
-                    content: "+1 (800) 555-FIBER",
-                    subtitle: "Mon-Fri 8AM-6PM EST",
+                    content: "+91 78923 65630",
+                    subtitle: "Mon-Fri 8AM-6PM IST",
                   },
                   {
                     icon: Mail,
                     title: "Email Us",
-                    content: "sales@fibertechpro.com",
+                    content: "sanna@bluesantos.com",
                     subtitle: "We reply within 24 hours",
                   },
                   {
                     icon: MapPin,
                     title: "Visit Us",
-                    content: "123 Industrial Park Drive",
-                    subtitle: "New York, NY 10001, USA",
+                    content: "Salarpuria Magnifica 13th Floor, No. 78, Next to KR Puram Tin factory, Old Madras Road, Mahadevapura, Bangalore, KA 560016",
+                   
                   },
                 ].map((item, index) => (
                   <motion.div

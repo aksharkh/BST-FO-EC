@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-
+import logo from "../assets/__Blue_Santos_Icon.png"
 import { Menu, X, Cable } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -68,13 +68,16 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               className="relative"
             >
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center animate-pulse-glow">
-                <Cable className="w-6 h-6 text-primary-foreground" />
+              <div className="w-11 h-11 rounded-xl bg-primary flex items-center justify-center animate-pulse-glow">
+                <img src={logo} alt="Blue Santos Technologies Logo" className="w-10 h-10" />
               </div>
             </motion.div>
-            <span className="font-display text-2xl font-bold text-foreground group-hover:text-secondary transition-colors">
-              FiberTech Pro
-            </span>
+            <span className="font-Noto Sans Japanese text-xl leading-tight font-bold text-foreground group-hover:text-secondary transition-colors">
+    <span className="block">BLUE SANTOS</span>
+    <span className="block text-xl tracking-wide">
+      TECHNOLOGIES
+    </span>
+  </span>
           </Link>
 
           {/* Desktop Navigation */}

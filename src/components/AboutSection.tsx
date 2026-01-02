@@ -38,7 +38,7 @@ const AboutSection = () => {
                 <span className="text-secondary">One Cable at a Time</span>
               </h2>
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                FiberTech Pro has been at the forefront of cable manufacturing for over 25 years. 
+                Blue Santos technologies has been at the forefront of cable manufacturing for over 25 years. 
                 We specialize in producing high-quality fiber optic and electrical cables that power 
                 industries, homes, and data centers across the globe.
               </p>

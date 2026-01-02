@@ -1,9 +1,10 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* FiberTech Pro - Black, White, Silver Design System */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -131,18 +132,18 @@
   }
 
   .card-hover {
-    @apply transition-all duration-500 ease-out;
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .card-hover:hover {
-    @apply -translate-y-2;
+    transform: translateY(-8px);
     box-shadow: var(--shadow-hover);
   }
 
   .silver-line {
     background: var(--gradient-silver);
     height: 2px;
-    @apply w-full;
+    width: 100%;
   }
 
   .glass-card {
