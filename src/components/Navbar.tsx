@@ -36,10 +36,13 @@ const Navbar = () => {
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
-    if (href.startsWith("#") && isHomePage) {
-      const element = document.querySelector(href);
-      element?.scrollIntoView({ behavior: "smooth" });
-    }
+    // Use setTimeout to allow menu to close before scrolling
+    setTimeout(() => {
+      if (href.startsWith("#") && isHomePage) {
+        const element = document.querySelector(href);
+        element?.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 150);
   };
 
   const scrollToContact = () => {
@@ -63,7 +66,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="relative"
@@ -72,7 +75,7 @@ const Navbar = () => {
                 <img src={logo} alt="Blue Santos Technologies Logo" className="w-10 h-10" />
               </div>
             </motion.div>
-            <span className="font-Noto Sans Japanese text-xl leading-tight font-bold text-foreground group-hover:text-secondary transition-colors">
+            <span className="font-Noto Sans Japanese text-xl leading-tight font-bold text-foreground group-hover:text-secondary transition-colors hidden sm:block">
     <span className="block">BLUE SANTOS</span>
     <span className="block text-xl tracking-wide">
       TECHNOLOGIES
@@ -113,70 +116,82 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <motion.button
             whileTap={{ scale: 0.95 }}
-            className="lg:hidden text-foreground p-2"
+            className="lg:hidden text-foreground p-2 ml-auto"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </motion.button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Backdrop */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden overflow-hidden"
-            >
-              <div className="py-6 border-t border-border/50">
-                <div className="flex flex-col gap-4">
-                  {navLinks.map((link, index) => (
+            <>
+              {/* Overlay */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsOpen(false)}
+                className="fixed inset-0 top-20 bg-background/80 backdrop-blur-sm z-40"
+              />
+
+              {/* Menu Content */}
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="lg:hidden overflow-hidden relative z-40"
+              >
+                <div className="py-6 border-t border-border/50">
+                  <div className="flex flex-col gap-4">
+                    {navLinks.map((link, index) => (
+                      <motion.div
+                        key={link.name}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                      >
+                        {link.href.startsWith("#") ? (
+                          <button
+                            onClick={() => handleNavClick(link.href)}
+                            className="text-foreground hover:text-secondary font-medium py-2 transition-colors block w-full text-left"
+                          >
+                            {link.name}
+                          </button>
+                        ) : (
+                          <Link
+                            to={link.href}
+                            onClick={() => setIsOpen(false)}
+                            className="text-foreground hover:text-secondary font-medium py-2 transition-colors block"
+                          >
+                            {link.name}
+                          </Link>
+                        )}
+                      </motion.div>
+                    ))}
                     <motion.div
-                      key={link.name}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
+                      transition={{ delay: navLinks.length * 0.1 }}
                     >
-                      {link.href.startsWith("#") ? (
-                        <button
-                          onClick={() => handleNavClick(link.href)}
-                          className="text-foreground hover:text-secondary font-medium py-2 transition-colors block w-full text-left"
-                        >
-                          {link.name}
-                        </button>
-                      ) : (
-                        <Link
-                          to={link.href}
-                          onClick={() => setIsOpen(false)}
-                          className="text-foreground hover:text-secondary font-medium py-2 transition-colors block"
-                        >
-                          {link.name}
-                        </Link>
-                      )}
+                      <Button
+                        variant="hero"
+                        size="lg"
+                        className="mt-4 w-full"
+                        onClick={() => {
+                          setIsOpen(false);
+                          scrollToContact();
+                        }}
+                      >
+                        Get Quote
+                      </Button>
                     </motion.div>
-                  ))}
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: navLinks.length * 0.1 }}
-                  >
-                    <Button
-                      variant="hero"
-                      size="lg"
-                      className="mt-4 w-full"
-                      onClick={() => {
-                        setIsOpen(false);
-                        scrollToContact();
-                      }}
-                    >
-                      Get Quote
-                    </Button>
-                  </motion.div>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </div>
