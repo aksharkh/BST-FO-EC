@@ -133,7 +133,8 @@ const Navbar = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setIsOpen(false)}
-                className="fixed inset-0 top-20 bg-background/80 backdrop-blur-sm z-40"
+                className="fixed bg-black/50 backdrop-blur-sm z-40"
+                style={{ pointerEvents: 'auto' }}
               />
 
               {/* Menu Content */}
@@ -142,10 +143,10 @@ const Navbar = () => {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
-                className="lg:hidden overflow-hidden relative z-40"
+                className="lg:hidden overflow-hidden relative z-50"
               >
-                <div className="py-6 border-t border-border/50">
-                  <div className="flex flex-col gap-4">
+                <div className="py-6 border-t border-border/50 bg-card">
+                  <div className="flex flex-col gap-4 px-4">
                     {navLinks.map((link, index) => (
                       <motion.div
                         key={link.name}
