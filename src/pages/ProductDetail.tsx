@@ -145,7 +145,7 @@ const ProductDetail = () => {
                     onClick={handleOpenDatasheet}
                   >
                     <Download className="w-5 h-5" />
-                    Download Datasheet
+                    Catalogue
                   </Button>
                 </div>
               </div>

@@ -93,7 +93,7 @@ const HeroSection = () => {
             </Link>
             <Button variant="heroOutline" size="xl" onClick={handleOpenDatasheet}>
               <Download className="w-5 h-5" />
-              Data Sheet
+              Products Catalogue
             </Button>
           </motion.div>
 
