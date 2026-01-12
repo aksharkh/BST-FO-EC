@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import heroImage from "../assets/hero-fiber.jpg";
 import { Button } from "./ui/button";
 
 const HeroSection = () => {
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    element?.scrollIntoView({ behavior: "smooth" });
+
+
+    const PDF_PATH = "/BlueSantos-catalogue.pdf"; 
+
+    const handleOpenDatasheet = () => {
+    window.open(PDF_PATH, "_blank");
   };
 
   return (
@@ -88,9 +91,9 @@ const HeroSection = () => {
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </Link>
-            <Button variant="heroOutline" size="xl" onClick={scrollToContact}>
-              <Play className="w-5 h-5" />
-              Get Quote
+            <Button variant="heroOutline" size="xl" onClick={handleOpenDatasheet}>
+              <Download className="w-5 h-5" />
+              Data Sheet
             </Button>
           </motion.div>
 

@@ -1,27 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {  Facebook, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
 import logo from "../assets/__Blue_Santos_Icon.png"
+import { navigateToSection } from "../lib/navigation";
 
 const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const footerLinks = {
     Products: [
-      { name: "Fiber Optic Cables", href: "/products?category=fiber" },
-      { name: "Electrical Cables", href: "/products?category=electrical" },
-      { name: "Hybrid Solutions", href: "/products?category=hybrid" },
-      { name: "Full Catalog", href: "/products" },
+      { name: "Fiber Optic Cables", href: "/products?category=fiber", type: "route" },
+      { name: "Electrical Cables", href: "/products?category=electrical", type: "route" },
+      { name: "Hybrid Solutions", href: "/products?category=hybrid", type: "route" },
+      { name: "Full Catalog", href: "/products", type: "route" },
     ],
     Company: [
-      { name: "About Us", href: "/#about" },
-      { name: "Our Team", href: "/#about" },
-      { name: "Careers", href: "/#contact" },
-      { name: "Contact", href: "/#contact" },
+      { name: "About Us", href: "about", type: "section" },
+      { name: "Our Team", href: "about", type: "section" },
+      { name: "Careers", href: "contact", type: "section" },
+      { name: "Contact", href: "contact", type: "section" },
     ],
     Resources: [
-      { name: "Technical Specs", href: "/products" },
-      { name: "Case Studies", href: "/#features" },
-      { name: "FAQ", href: "/#features" },
-      { name: "Support", href: "/#contact" },
+      { name: "Technical Specs", href: "/products", type: "route" },
+      { name: "Case Studies", href: "features", type: "section" },
+      { name: "FAQ", href: "features", type: "section" },
+      { name: "Support", href: "contact", type: "section" },
     ],
   };
 
@@ -32,6 +36,12 @@ const Footer = () => {
     { icon: Instagram, href: "#" },
     { icon: Youtube, href: "#" },
   ];
+
+  const handleLinkClick = (link: { href: string; type: string }) => {
+    if (link.type === "section") {
+      navigateToSection(link.href, navigate, location.pathname);
+    }
+  };
 
   return (
     <footer className="border-t border-border/50 bg-card/50">
@@ -81,12 +91,21 @@ const Footer = () => {
               <ul className="space-y-3">
                 {links.map((link, index) => (
                   <li key={index}>
-                    <Link
-                      to={link.href}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {link.name}
-                    </Link>
+                    {link.type === "section" ? (
+                      <button
+                        onClick={() => handleLinkClick(link)}
+                        className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                      >
+                        {link.name}
+                      </button>
+                    ) : (
+                      <Link
+                        to={link.href}
+                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../assets/__Blue_Santos_Icon.png"
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import { navigateToSection } from "../lib/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
 
   useEffect(() => {
@@ -30,8 +32,8 @@ const Navbar = () => {
     : [
         { name: "Home", href: "/" },
         { name: "Products", href: "/products" },
-        { name: "About", href: "/#about" },
-        { name: "Contact", href: "/#contact" },
+        { name: "About", href: "about" },
+        { name: "Contact", href: "contact" },
       ];
 
   const handleNavClick = (href: string) => {
@@ -41,17 +43,16 @@ const Navbar = () => {
       if (href.startsWith("#") && isHomePage) {
         const element = document.querySelector(href);
         element?.scrollIntoView({ behavior: "smooth" });
+      } else if (!href.startsWith("/") && !href.startsWith("#")) {
+        // It's a section ID from non-home page
+        navigateToSection(href, navigate, location.pathname);
       }
     }, 150);
   };
 
   const scrollToContact = () => {
-    if (isHomePage) {
-      const element = document.getElementById("contact");
-      element?.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.location.href = "/#contact";
-    }
+    setIsOpen(false);
+    navigateToSection("contact", navigate, location.pathname);
   };
 
   return (
@@ -86,7 +87,7 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8 ">
             {navLinks.map((link) => (
-              link.href.startsWith("#") ? (
+              link.href.startsWith("#") || (!link.href.startsWith("/") && !link.href.startsWith("#")) ? (
                 <button
                   key={link.name}
                   onClick={() => handleNavClick(link.href)}
@@ -154,7 +155,7 @@ const Navbar = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.1 }}
                       >
-                        {link.href.startsWith("#") ? (
+                        {link.href.startsWith("#") || (!link.href.startsWith("/") && !link.href.startsWith("#")) ? (
                           <button
                             onClick={() => handleNavClick(link.href)}
                             className="text-foreground hover:text-secondary font-medium py-2 transition-colors block w-full text-left"
@@ -181,10 +182,7 @@ const Navbar = () => {
                         variant="hero"
                         size="lg"
                         className="mt-4 w-full"
-                        onClick={() => {
-                          setIsOpen(false);
-                          scrollToContact();
-                        }}
+                        onClick={scrollToContact}
                       >
                         Get Quote
                       </Button>

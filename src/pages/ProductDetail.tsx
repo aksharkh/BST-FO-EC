@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check, Download, Phone, Mail } from "lucide-react";
 
@@ -7,11 +7,25 @@ import { Button } from "../components/ui/button";
 import Navbar from "../components/Navbar";
 import AnimatedSection from "../components/AnimatedSection";
 import Footer from "../components/Footer";
+import { navigateToSection } from "../lib/navigation";
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const location = useLocation();
   const product = id ? getProductById(id) : undefined;
+
+  // Path to your PDF in the public folder
+  const PDF_PATH = "/BlueSantos-catalogue.pdf"; 
+
+  const handleOpenDatasheet = () => {
+    window.open(PDF_PATH, "_blank");
+  };
+
+  const handleContactClick = () => {
+    navigateToSection("contact", navigate, location.pathname);
+  };
+
 
   if (!product) {
     return (
@@ -115,11 +129,21 @@ const ProductDetail = () => {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button variant="hero" size="lg" className="flex-1">
+                  <Button 
+                    variant="hero" 
+                    size="lg" 
+                    className="flex-1"
+                    onClick={handleContactClick}
+                  >
                     <Phone className="w-5 h-5" />
                     Request Quote
                   </Button>
-                  <Button variant="outline" size="lg" className="flex-1">
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="flex-1"
+                    onClick={handleOpenDatasheet}
+                  >
                     <Download className="w-5 h-5" />
                     Download Datasheet
                   </Button>
@@ -188,11 +212,19 @@ const ProductDetail = () => {
                 Our team of experts is ready to help you find the perfect solution for your needs.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Button variant="hero" size="lg">
+                <Button 
+                  variant="hero" 
+                  size="lg"
+                  onClick={handleContactClick}
+                >
                   <Mail className="w-5 h-5" />
                   Contact Sales
                 </Button>
-                <Button variant="outline" size="lg">
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  onClick={handleContactClick}
+                >
                   <Phone className="w-5 h-5" />
                   Call Us Now
                 </Button>
