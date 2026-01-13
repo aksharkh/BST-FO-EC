@@ -87,11 +87,11 @@ const AboutSection = () => {
                 
                 <div className="relative z-10 space-y-6">
                   {[
-                    { year: "2020", event: "Trading division under Bluesantos" },
-                    { year: "2021", event: "Expanded power & energy trading portfolio" },
-                    { year: "2022", event: "Entered optical & fiber supply segment" },
-                    { year: "2023", event: "Built global sourcing partnerships" },
-                    { year: "2025", event: "Serving clients across multiple regions" },
+                    { year: "2015", event: "Our Roots: Began empowering organizations with ISO 9001, ISO 27001, and CMMI implementation, auditing, and certification, driven by high standards." },
+                    { year: "2022", event: "Worldwide Growth: Entered Singapore, broadening capabilities to deliver end-to-end GRC solutions." },
+                    { year: "2021", event: "Expanded our power and energy trading portfolio by entering the cable segment, strengthening our role in power transmission and infrastructure development." },
+                    { year: "2025", event: "Global Expansion: Established a presence in the United States, strengthening global reach and services." },
+                    { year: "Now", event: "Ongoing Pledge: Continue to deliver honest, high-quality solutions that empower clients, people, and communities worldwide."}
                   ].map((item, index) => (
                     <motion.div
                       key={index}
@@ -106,7 +106,7 @@ const AboutSection = () => {
                           {item.year}
                         </span>
                       </div>
-                      <div className="silver-line flex-1 h-[2px]" />
+                      <div className="silver-line w-36 h-[2px]" />
                       <p className="text-foreground font-medium text-sm flex-1">
                         {item.event}
                       </p>
@@ -122,11 +122,11 @@ const AboutSection = () => {
                 transition={{ delay: 0.8 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.1 }}
-                className="absolute -bottom-6 -left-6 glass-card rounded-2xl p-6 border border-secondary/30 animate-pulse-glow"
+                className="absolute -bottom-16 -left-6 glass-card rounded-2xl p-6 border border-secondary/30 animate-pulse-glow"
               >
                 <div className="text-center">
                   <div className="font-display text-4xl font-bold text-primary mb-1">
-                    5+
+                    10+
                   </div>
                   <div className="text-sm text-muted-foreground">
                     Years of Excellence
