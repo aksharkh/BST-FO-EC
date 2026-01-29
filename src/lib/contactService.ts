@@ -65,7 +65,7 @@ export const sendContactForm = async (formData: ContactFormData) => {
           }),
           mode: 'no-cors',
         });
-        console.log('Data sent to Google Sheets');
+        console.log('Data sent to Google Sheets', response);
       } catch (sheetsError) {
         console.warn('Google Sheets error (non-critical):', sheetsError);
         // Don't throw - email was sent successfully
