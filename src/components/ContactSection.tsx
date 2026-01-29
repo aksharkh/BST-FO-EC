@@ -55,13 +55,13 @@ const ContactSection = () => {
                   {
                     icon: Phone,
                     title: "Call Us",
-                    content: "+91 78923 65630 , +91 96322 27235",
+                    content: "+91 78923 65630  | +91 96322 27235",
                     subtitle: "Mon-Fri 8AM-6PM IST",
                   },
                   {
                     icon: Mail,
                     title: "Email Us",
-                    content: "sanna@bluesantos.com , dinakaran@bluesantos.com",
+                    content: "sanna@bluesantos.com | dinakaran@bluesantos.com",
                     subtitle: "We reply within 24 hours",
                   },
                   {
