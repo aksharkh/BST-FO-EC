@@ -27,11 +27,13 @@ const Navbar = () => {
         { name: "Products", href: "#products" },
         { name: "About", href: "#about" },
         { name: "Features", href: "#features" },
+        { name: "Certifications", href: "/certifications" },
         { name: "Contact", href: "#contact" },
       ]
     : [
         { name: "Home", href: "/" },
         { name: "Products", href: "/products" },
+        { name: "Certifications", href: "/certifications" },
         { name: "About", href: "about" },
         { name: "Contact", href: "contact" },
       ];

@@ -1,12 +1,13 @@
 import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Check, Download, Phone, Mail } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Phone, Mail } from "lucide-react";
 
 import { getProductById, getProductsByCategory } from "../data/products";
 import { Button } from "../components/ui/button";
 import Navbar from "../components/Navbar";
 import AnimatedSection from "../components/AnimatedSection";
 import Footer from "../components/Footer";
+import CatalogueDropdown from "../components/CatalogueDropdown";
 import { navigateToSection } from "../lib/navigation";
 
 const ProductDetail = () => {
@@ -14,13 +15,6 @@ const ProductDetail = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const product = id ? getProductById(id) : undefined;
-
-  // Path to your PDF in the public folder
-  const PDF_PATH = "/BlueSantos-catalogue.pdf"; 
-
-  const handleOpenDatasheet = () => {
-    window.open(PDF_PATH, "_blank");
-  };
 
   const handleContactClick = () => {
     navigateToSection("contact", navigate, location.pathname);
@@ -138,15 +132,9 @@ const ProductDetail = () => {
                     <Phone className="w-5 h-5" />
                     Request Quote
                   </Button>
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
-                    className="flex-1"
-                    onClick={handleOpenDatasheet}
-                  >
-                    <Download className="w-5 h-5" />
-                    Catalogue
-                  </Button>
+                  <div className="flex-1">
+                    <CatalogueDropdown />
+                  </div>
                 </div>
               </div>
             </AnimatedSection>

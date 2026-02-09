@@ -1,19 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import heroImage from "../assets/hero-fiber.jpg";
 import { Button } from "./ui/button";
+import CatalogueDropdown from "./CatalogueDropdown";
 
 const HeroSection = () => {
-
-
-    const PDF_PATH = "/BlueSantos-catalogue.pdf"; 
-
-    const handleOpenDatasheet = () => {
-    window.open(PDF_PATH, "_blank");
-  };
-
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image */}
@@ -91,10 +84,7 @@ const HeroSection = () => {
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </Link>
-            <Button variant="heroOutline" size="xl" onClick={handleOpenDatasheet}>
-              <Download className="w-5 h-5" />
-              Products Catalogue
-            </Button>
+            <CatalogueDropdown />
           </motion.div>
 
           {/* Stats */}

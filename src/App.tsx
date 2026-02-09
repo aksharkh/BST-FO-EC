@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Index from "./pages/Index";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
+import Certifications from "./pages/Certifications";
 import NotFound from "./pages/NotFound";
 import { useScrollToSection } from "./lib/navigation";
 
@@ -39,6 +40,7 @@ const App = () => (
         <Route path="/" element={<Index />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetail />} />
+        <Route path="/certifications" element={<Certifications />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
