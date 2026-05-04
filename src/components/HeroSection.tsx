@@ -2,35 +2,28 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import { ArrowRight } from "lucide-react";
-import heroImage from "../assets/hero-fiber.jpg";
+import Hyperspeed from "./Hyperspeed";
 import { Button } from "./ui/button";
 import CatalogueDropdown from "./CatalogueDropdown";
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <motion.img
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5 }}
-          src={heroImage}
-          alt="Fiber optic cables with blue glowing light"
-          className="w-full h-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
-      </div>
+    <section id="home" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Hyperspeed Background - fills entire section */}
+      <Hyperspeed />
+      
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/60 via-background/40 to-background/30 pointer-events-none" />
 
       {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-20 z-0" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-20 z-1 pointer-events-none" />
 
       {/* Glow Effect */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-secondary/10 via-secondary/5 to-transparent rounded-full blur-3xl z-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-secondary/10 via-secondary/5 to-transparent rounded-full blur-3xl z-1 pointer-events-none"
       />
 
       {/* Content */}
