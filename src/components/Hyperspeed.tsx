@@ -1,5 +1,7 @@
 import { BloomEffect, EffectComposer, EffectPass, RenderPass, SMAAEffect, SMAAPreset } from 'postprocessing';
-import { FC, useEffect, useRef, useMemo } from 'react';
+import type { FC } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
+
 import * as THREE from 'three';
 
 interface Distortion {
@@ -532,7 +534,9 @@ class CarLights {
       )
     });
 
-    material.onBeforeCompile = shader => {
+    material.onBeforeCompile = (shader: any) => {
+
+
       shader.vertexShader = shader.vertexShader.replace(
         '#include <getDistortion_vertex>',
         typeof this.options.distortion === 'object' ? this.options.distortion.getDistortion : ''
@@ -662,7 +666,9 @@ class LightsSticks {
       )
     });
 
-    material.onBeforeCompile = shader => {
+    material.onBeforeCompile = (shader: any) => {
+
+
       shader.vertexShader = shader.vertexShader.replace(
         '#include <getDistortion_vertex>',
         typeof this.options.distortion === 'object' ? this.options.distortion.getDistortion : ''
@@ -748,7 +754,8 @@ class Road {
     this.uTime = { value: 0 };
   }
 
-  createPlane(side: number, width: number, isRoad: boolean) {
+  createPlane(side: number, isRoad: boolean) {
+
     const options = this.options;
     const segments = 100;
     const geometry = new THREE.PlaneGeometry(
@@ -798,7 +805,9 @@ class Road {
       )
     });
 
-    material.onBeforeCompile = shader => {
+    material.onBeforeCompile = (shader: any) => {
+
+
       shader.vertexShader = shader.vertexShader.replace(
         '#include <getDistortion_vertex>',
         typeof this.options.distortion === 'object' ? this.options.distortion.getDistortion : ''
@@ -815,9 +824,9 @@ class Road {
   }
 
   init() {
-    this.leftRoadWay = this.createPlane(-1, this.options.roadWidth, true);
-    this.rightRoadWay = this.createPlane(1, this.options.roadWidth, true);
-    this.island = this.createPlane(0, this.options.islandWidth, false);
+    this.leftRoadWay = this.createPlane(-1, true);
+    this.rightRoadWay = this.createPlane(1, true);
+    this.island = this.createPlane(0, false);
   }
 
   update(time: number) {
@@ -1192,7 +1201,8 @@ class App {
     this.disposed = true;
 
     if (this.scene) {
-      this.scene.traverse(object => {
+      this.scene.traverse((object: THREE.Object3D) => {
+
         const obj = object as unknown as THREE.Mesh;
         if (!obj.isMesh) return;
 
@@ -1200,7 +1210,8 @@ class App {
 
         if (obj.material) {
           if (Array.isArray(obj.material)) {
-            obj.material.forEach(material => material.dispose());
+            obj.material.forEach((material: THREE.Material) => material.dispose());
+
           } else {
             obj.material.dispose();
           }
