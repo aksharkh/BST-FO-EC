@@ -78,7 +78,7 @@ const Navbar = () => {
                 <img src={logo} alt="Blue Santos Technologies Logo" className="w-10 h-10" />
               </div>
             </motion.div>
-            <span className="font-Noto Sans Japanese text-xl leading-tight font-bold text-foreground group-hover:text-secondary transition-colors hidden sm:block">
+            <span className="font-Noto Sans Japanese text-xl leading-tight font-bold text-foreground group-hover:text-white transition-colors hidden sm:block">
     <span className="block">BLUE SANTOS</span>
     <span className="block text-xl tracking-wide">
       TECHNOLOGIES
@@ -148,7 +148,7 @@ const Navbar = () => {
                 transition={{ duration: 0.3 }}
                 className="lg:hidden overflow-hidden relative z-50"
               >
-                <div className="py-6 border-t border-border/50 bg-card">
+                <div className="py-6 border-t border-border/50 bg-background">
                   <div className="flex flex-col gap-4 px-4">
                     {navLinks.map((link, index) => (
                       <motion.div

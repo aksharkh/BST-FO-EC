@@ -43,17 +43,18 @@ const products = [
 
 const ProductsSection = () => {
   return (
-    <section id="products" className="py-24 lg:py-32 relative">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
+    <section id="products" className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Background - Inherit from global */}
+      <div className="absolute inset-0 bg-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Header */}
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-secondary font-semibold text-sm uppercase tracking-wider mb-4 block">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
             Our Products
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
             Cutting-Edge Cable Solutions
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -106,7 +107,7 @@ const ProductsSection = () => {
                     ))}
                   </div>
 
-                  <div className="flex items-center text-primary font-medium">
+                  <div className="flex items-center text-primary font-medium group-hover:text-primary transition-colors">
                     Explore {product.title.split(" ")[0]}
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-2" />
                   </div>

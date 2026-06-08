@@ -40,9 +40,9 @@ export const CatalogueDropdown = ({ onSelect }: CatalogueDropdownProps) => {
     <div className="relative inline-block w-full sm:w-auto">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full sm:w-auto px-6 py-3 rounded-lg border border-primary text-primary hover:bg-primary/10 font-medium transition-all flex items-center justify-center gap-2"
+        className="w-full sm:w-auto px-6 py-3 rounded-lg border border-black text-black hover:bg-primary/10 font-medium transition-all flex items-center justify-center gap-2"
       >
-        <FileText className="w-5 h-5" />
+        <FileText className="w-5 h-9" />
         Products Catalogue
         <ChevronDown
           className={`w-4 h-4 transition-transform ${isOpen ? "rotate-180" : ""}`}

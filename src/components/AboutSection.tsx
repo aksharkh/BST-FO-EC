@@ -19,9 +19,9 @@ const AboutSection = () => {
   };
 
   return (
-    <section id="about" className="py-24 lg:py-32 relative">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-muted/30 via-transparent to-muted/30" />
+    <section id="about" className="py-24 lg:py-32 relative bg-transparent">
+      {/* Background - Inherit */}
+      <div className="absolute inset-0 bg-transparent" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">

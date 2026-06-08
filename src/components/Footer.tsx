@@ -45,7 +45,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="border-t border-border/50 bg-card/50">
+    <footer className="border-t border-border/50 bg-transparent">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Main Footer */}
         <div className="py-16 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">

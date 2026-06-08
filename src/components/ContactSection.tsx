@@ -51,14 +51,14 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background" />
+    <section id="contact" className="py-24 lg:py-32 relative overflow-hidden bg-transparent">
+      {/* Background - Inherit */}
+      <div className="absolute inset-0 bg-transparent" />
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-3xl"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/20 rounded-full blur-3xl"
       />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">

@@ -20,9 +20,9 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-muted hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-primary text-primary-foreground font-bold shadow-lg hover:shadow-[0_0_30px_hsl(0_0%_100%/0.3)] hover:-translate-y-1 transition-all duration-300",
-        heroOutline: "border-2 border-primary bg-transparent text-foreground hover:bg-primary/10 hover:shadow-[0_0_20px_hsl(0_0%_100%/0.15)]",
-        silver: "bg-gradient-to-r from-silver-light to-silver-dark text-secondary-foreground font-bold shadow-lg hover:shadow-[0_0_30px_hsl(0_0%_70%/0.4)] hover:-translate-y-1",
+        hero: "bg-primary text-primary-foreground font-bold shadow-lg hover:shadow-[0_0_30px_rgba(79,181,145,0.4)] hover:-translate-y-1 transition-all duration-300",
+        heroOutline: "border-2 border-primary bg-transparent text-foreground hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(79,181,145,0.2)]",
+        lime: "bg-secondary text-secondary-foreground font-bold shadow-lg hover:shadow-[0_0_30px_rgba(239,243,186,0.5)] hover:-translate-y-1",
       },
       size: {
         default: "h-11 px-6 py-2",
