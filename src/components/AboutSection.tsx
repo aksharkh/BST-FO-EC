@@ -39,7 +39,7 @@ const AboutSection = () => {
               </h2>
 
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                Trading division of <strong>Bluesantos</strong>, established
+                Division of <strong>Blue Santos Technologies Pvt. Ltd.</strong>, established
                 five years ago to deliver reliable and high-quality trading solutions across
                 power, optical, and allied industries.
               </p>

@@ -78,10 +78,10 @@ const Navbar = () => {
                 <img src={logo} alt="Blue Santos Technologies Logo" className="w-10 h-10" />
               </div>
             </motion.div>
-            <span className="font-Noto Sans Japanese text-xl leading-tight font-bold text-foreground group-hover:text-secondary transition-colors hidden sm:block">
-    <span className="block">BLUE SANTOS</span>
-    <span className="block text-xl tracking-wide">
-      TECHNOLOGIES
+            <span className="font-Noto Sans Japanese text-xl leading-tight  text-foreground group-hover:text-secondary transition-colors hidden sm:block">
+    <span className="block font-bold">BLUE SANTOS TRADING </span>
+    <span className="block text-sm tracking-wide">
+      A unit of Blue Santos Technologies Pvt. Ltd.
     </span>
   </span>
           </Link>
