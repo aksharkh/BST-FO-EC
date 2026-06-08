@@ -79,7 +79,7 @@ const Navbar = () => {
               </div>
             </motion.div>
             <span className="font-Noto Sans Japanese text-xl leading-tight  text-foreground group-hover:text-secondary transition-colors hidden sm:block">
-    <span className="block font-bold">BLUE SANTOS TRADING </span>
+    <span className="block font-bold">BLUE SANTOS TRADING DIVISION</span>
     <span className="block text-sm tracking-wide">
       A unit of Blue Santos Technologies Pvt. Ltd.
     </span>
