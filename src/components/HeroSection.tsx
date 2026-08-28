@@ -8,14 +8,12 @@ import CatalogueDropdown from "./CatalogueDropdown";
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section id="home" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Hyperspeed Background - fills entire section */}
-      <div className="absolute inset-0 z-0 mask-bottom-fade">
-        <Hyperspeed />
-      </div>
+      <Hyperspeed />
       
-      {/* Gradient Overlay - Transparent to allow global flow */}
-      <div className="absolute inset-0 z-0 bg-transparent pointer-events-none" />
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/60 via-background/40 to-background/30 pointer-events-none" />
 
       {/* Grid Pattern Overlay */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 z-1 pointer-events-none" />
@@ -25,7 +23,7 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-secondary/20 via-secondary/10 to-transparent rounded-full blur-3xl z-1 pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-secondary/10 via-secondary/5 to-transparent rounded-full blur-3xl z-1 pointer-events-none"
       />
 
       {/* Content */}
@@ -49,10 +47,10 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-foreground"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
           >
             Powering the Future with{" "}
-            <span className="text-primary">Premium Cables</span>
+            <span className="text-secondary">Premium Cables</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -102,7 +100,7 @@ const HeroSection = () => {
                 transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
                 className="text-center"
               >
-                <div className="font-display text-3xl md:text-4xl font-bold  mb-2">
+                <div className="font-display text-3xl md:text-4xl font-bold text-primary mb-2">
                   {stat.value}
                 </div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
@@ -119,11 +117,11 @@ const HeroSection = () => {
         transition={{ delay: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce"
       >
-        <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/90 flex items-start justify-center p-2">
+        <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/50 flex items-start justify-center p-2">
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
-            className="w-1 h-2 rounded-full bg-white"
+            className="w-1 h-2 rounded-full bg-primary"
           />
         </div>
       </motion.div>
